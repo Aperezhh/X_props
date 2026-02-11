@@ -18,7 +18,7 @@ See README.md for usage and conventions.
 
 Dependencies: numpy, shapely, matplotlib (optional)
 """
-from typing import List, Tuple, Dict, Optional, Any, Sequence, TypedDict, cast
+from typing import List, Tuple, Dict, Optional, Any, Sequence, TypedDict, cast, Mapping
 import math
 import numpy as np
 from shapely.geometry import Polygon, Point, box, MultiPolygon, GeometryCollection
@@ -1194,7 +1194,7 @@ def calculate_weld_polar_inertia(
 # OUTPUT UTILITIES
 # ============================================================
 
-def pretty(d: Dict[str, float], n: int = 1) -> str:
+def pretty(d: Mapping[str, float], n: int = 1) -> str:
     """
     Format props() result for printing.
     

@@ -20,7 +20,7 @@ import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 from matplotlib.axes import Axes
 import numpy as np
-from typing import Sequence, Tuple, Dict, Any, Optional
+from typing import Sequence, Tuple, Dict, Any, Optional, Mapping
 
 from shapely.geometry.base import BaseGeometry
 try:
@@ -154,7 +154,7 @@ def plot_section_with_style(
 def annotate_title(
     ax: Axes,
     template: str,
-    params: Optional[Dict[str, Any]] = None,
+    params: Optional[Mapping[str, Any]] = None,
     **text_kwargs
 ):
     """
@@ -184,7 +184,7 @@ def plot_centroid_marker(ax: Axes, cx: float, cy: float, **marker_kwargs) -> Non
 
 def annotate_centroid(
     ax: Axes,
-    props_data: Dict[str, Any],
+    props_data: Mapping[str, Any],
     *,
     show_marker: bool = True,
     show_text: bool = True,
@@ -302,7 +302,7 @@ def annotate_bbox(
 
 def plot_profile_with_props(
     section: BaseGeometry,
-    props_data: Optional[Dict[str, Any]] = None,
+    props_data: Optional[Mapping[str, Any]] = None,
     *,
     title: Optional[str] = None,
     show_centroid: bool = True,
