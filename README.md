@@ -43,8 +43,11 @@ plot_profile_with_props(section, p, title="Plate 200x300")
 
 ## Examples For Engineers
 
-- Main practical examples are in the notebook: `examples/module_xprops.ipynb`
-- A minimal script example is available in: `examples/basic_usage.py`
+- Main practical examples are in the notebook: `module_xprops.ipynb`
+- Notebook figures are included in the repository root:
+  - `Example 9_6.PNG`
+  - `Example 9_8.PNG`
+  - `Example 10_5.PNG`
 - To run the notebook:
 
 ```bash
