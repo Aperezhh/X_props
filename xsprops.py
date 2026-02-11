@@ -1,4 +1,4 @@
-# xsprops.py
+﻿# xsprops.py
 """
 xsprops - Cross-section geometry and properties library.
 Tekla-compatible coordinate system.
@@ -851,16 +851,16 @@ def props(g: BaseGeometry) -> SectionProps:
     
     Returns:
         Dictionary with:
-            A:        Area (mm²)
+            A:        Area (mm^2)
             Cx, Cy:   Centroid coordinates (mm)
-            Ix, Iy:   Second moments of area about centroidal axes (mm⁴)
-            Ixy:      Product of inertia (mm⁴)
-            Sx_max:   First moment of area (half-section) about X axis (mm³)
-            Sy_max:   First moment of area (half-section) about Y axis (mm³)
-            Wx_plus:  Section modulus, top fiber (mm³)
-            Wx_minus: Section modulus, bottom fiber (mm³)
-            Wy_plus:  Section modulus, right fiber (mm³)
-            Wy_minus: Section modulus, left fiber (mm³)
+            Ix, Iy:   Second moments of area about centroidal axes (mm^4)
+            Ixy:      Product of inertia (mm^4)
+            Sx_max:   First moment of area (half-section) about X axis (mm^3)
+            Sy_max:   First moment of area (half-section) about Y axis (mm^3)
+            Wx_plus:  Section modulus, top fiber (mm^3)
+            Wx_minus: Section modulus, bottom fiber (mm^3)
+            Wy_plus:  Section modulus, right fiber (mm^3)
+            Wy_minus: Section modulus, left fiber (mm^3)
     
     Raises:
         ValueError: If geometry is empty or has zero area
@@ -1170,7 +1170,7 @@ def calculate_weld_polar_inertia(
         b_side:   Include vertical welds
     
     Returns:
-        Polar moment of inertia Ip (mm⁴)
+        Polar moment of inertia Ip (mm^4)
     """
     Ix = 0.0
     Iy = 0.0
@@ -1323,17 +1323,17 @@ def profile_from_dict(
     nseg: int = 8
 ) -> BaseGeometry:
     """
-    Dict -> Shapely геометрия сечения (centroid ~ (0,0)).
+    Dict -> Shapely section geometry (centroid ~ (0, 0)).
 
-    Поддерживает:
-      - DB/кэш профилей (обычно есть key/section + размеры)
-      - Tekla snapshot refs (profile_type + profile_params[])
-      - ручной dict (Type/profile_type + H/B + толщины)
+    Supports:
+      - DB/cache profile dictionaries (usually key/section + dimensions)
+      - Tekla snapshot references (profile_type + profile_params[])
+      - manual dictionaries (Type/profile_type + H/B + thicknesses)
 
-    Важно:
-      - Tekla snapshot имеет поле "type": "Beam" (ЭТО НЕ ТИП СЕЧЕНИЯ).
-        Для сечения используем "profile_type" (PROFILE_I / PROFILE_P / PROFILE_PD / ...),
-        либо наш "Type" ("Tube", "Round_tube", ...).
+    Important:
+      - Tekla snapshot may contain "type": "Beam" (this is not the section type).
+        For section reconstruction use "profile_type" (PROFILE_I / PROFILE_P / PROFILE_PD / ...),
+        or project-level "Type" ("Tube", "Round_tube", ...).
     """
     if not isinstance(data, dict):
         raise TypeError("profile_from_dict expects dict")
