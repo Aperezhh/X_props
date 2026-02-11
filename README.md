@@ -41,6 +41,17 @@ p = props(section)
 plot_profile_with_props(section, p, title="Plate 200x300")
 ```
 
+## Examples For Engineers
+
+- Main practical examples are in the notebook: `examples/module_xprops.ipynb`
+- A minimal script example is available in: `examples/basic_usage.py`
+- To run the notebook:
+
+```bash
+pip install jupyter
+jupyter lab
+```
+
 ## Coordinate Convention
 
 - Centroid is at `(0, 0)`
