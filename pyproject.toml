@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "x-props"
+version = "0.1.0"
+description = "Cross-section geometry and properties library."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Aperezhh" }
+]
+dependencies = [
+  "numpy",
+  "shapely",
+  "matplotlib"
+]
+
+[tool.setuptools]
+py-modules = ["xsprops", "xsprops_plot"]
