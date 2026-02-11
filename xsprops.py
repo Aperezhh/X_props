@@ -1194,7 +1194,7 @@ def calculate_weld_polar_inertia(
 # OUTPUT UTILITIES
 # ============================================================
 
-def pretty(d: Mapping[str, float], n: int = 1) -> str:
+def pretty(d: Mapping[str, Any], n: int = 1) -> str:
     """
     Format props() result for printing.
     
@@ -1210,14 +1210,17 @@ def pretty(d: Mapping[str, float], n: int = 1) -> str:
     
     key_order = ['A', 'Cx', 'Cy', 'Ix', 'Iy', 'Ip', 'Ixy', 'rx', 'ry', 'Sx_max', 'Sy_max',
                  'Wx_plus', 'Wx_minus', 'Wy_plus', 'Wy_minus']
+
+    def _is_number(value: Any) -> bool:
+        return isinstance(value, (int, float, np.integer, np.floating))
     
     for k in key_order:
-        if k in d:
-            lines.append(f"{k:<9}= {format(d[k], float_format)}")
+        if k in d and _is_number(d[k]):
+            lines.append(f"{k:<9}= {format(float(d[k]), float_format)}")
     
     for k, v in d.items():
-        if k not in key_order:
-            lines.append(f"{k:<9}= {format(v, float_format)}")
+        if k not in key_order and _is_number(v):
+            lines.append(f"{k:<9}= {format(float(v), float_format)}")
     
     return '\n'.join(lines)
 
